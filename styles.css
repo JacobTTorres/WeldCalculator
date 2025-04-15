@@ -1,0 +1,69 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(#B4ADE3, #4F4F81);
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+}
+.main{
+    width: 20%;
+    height: 45%;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #645F96;
+    height: 5vh;
+    width: 30vw;
+    font-size: 2.5ch;
+    text-align: center;
+    margin: 0;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 17vh;
+    width: 20vw;
+    font-size: 2ch;
+    border-radius: 5%;
+    color: #fff;
+}
+
+label{
+    font-size: 1.75ch;
+}
+
+input{
+    background-color: #2C2C2C;
+    border: none;
+    border-radius: 5px;
+    height: 3vh;
+    color: aliceblue;
+}
+
+.formlables{
+    width: 40%;
+}
+
+.Note,.underNote{
+    color: #645F96;
+}
+
+.underNote{
+    margin: 0;
+}
+.results{
+    color:aliceblue;
+}
