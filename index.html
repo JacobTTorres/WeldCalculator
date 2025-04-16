@@ -11,13 +11,15 @@
         <h1>Weld Calculation Tool</h1>
         <form onsubmit="event.preventDefault(); calculateWelds();">
             <div class="formLable"><label for="totalLength">Foot Length (in inches):</label><br>
-                <input type="number" id="totalLength" step="0.1" required placeholder="Enter foot length"><br><br>
+                <input type="number" id="totalLength" step="0.0001" required placeholder="Enter foot length"><br><br>
             </div>
             <div class="formLable">
                 <label for="widthOfFoot">Foot width (in inches):</label><br>
-                <input class="footInput" type="number" id="widthOfFoot" step="0.1" required placeholder="Enter foot width"><br><br>
+                <input class="footInput" type="number" id="widthOfFoot" step="0.0001" required placeholder="Enter foot width"><br><br>
+            </div>
+            <div class="btn">
+                <button type="submit">Calculate</button>
             </div>    
-            <button type="submit">Calculate</button>
         </form>
         <h2 class="Note">Note:</h2>
         <p class="underNote">Each hole should get a Weld.<br/>Decimals will round up to nearest inch.</p>
