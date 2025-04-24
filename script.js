@@ -28,6 +28,18 @@ function calculateWelds() {
     let distDeci = remainLength / spaceTotInside;
     let distBetweenWelds = distDeci.toFixed(4);
 
+
+    // temperary fix not very well optimized
+    if (numOfWelds === 3) {
+        numOfWelds -= 1; // Subtract 1 weld
+        distBetweenWelds = (parseFloat(distBetweenWelds) + lengthOfWelds).toFixed(4); // Add lengthOfWelds to spacing
+    } else if (numOfWelds > 3) {
+        numOfWelds -= 2; // Subtract 2 welds
+        distBetweenWelds = (parseFloat(distBetweenWelds) + lengthOfWelds).toFixed(4); // Add lengthOfWelds to spacing
+    }
+    // temperary fix not very well optimized
+    
+
     // Display results
     document.getElementById("results").innerHTML = `
         <p><strong>Length of Welds:</strong> ${lengthOfWelds} inches</p>
