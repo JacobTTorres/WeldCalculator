@@ -2,43 +2,25 @@ function calculateWelds() {
     // Get input values
     let totLength = parseFloat(document.getElementById("totalLength").value);
     let widthOfFoot = parseFloat(document.getElementById("widthOfFoot").value);
-    let numOfWelds = 2; // Initial number of welds
+    let numOfWelds = 2; // Start with 2 welds
     let lengthOfWelds;
 
-    // Determine the length of welds
-    if (widthOfFoot <= 1.5) {
-        lengthOfWelds = 3;
-    } else if (widthOfFoot >= 5) {
-        lengthOfWelds = 6;
-    } else {
-        lengthOfWelds = widthOfFoot + 1;
-    }
+    // Determine weld length (constrained between 3 and 6 inches)
+    lengthOfWelds = Math.min(Math.max(widthOfFoot + 1, 3), 6);
 
-    // Calculate remaining length
+    // Calculate remaining length after initial welds
     let remainLength = totLength - (lengthOfWelds * numOfWelds);
 
-    // Adjust number of welds based on remaining length
-    while (remainLength >= widthOfFoot * 3) {
+    // Adjust number of welds dynamically based on spacing constraint
+    while ((remainLength / (numOfWelds - 1)) > widthOfFoot * 3) {
         numOfWelds += 1;
         remainLength -= lengthOfWelds;
     }
 
-    // Calculate distance between welds
+    // Calculate final distance between welds
     let spaceTotInside = numOfWelds - 1;
     let distDeci = remainLength / spaceTotInside;
     let distBetweenWelds = distDeci.toFixed(4);
-
-
-    // temperary fix not very well optimized
-    if (numOfWelds === 3) {
-        numOfWelds -= 1; // Subtract 1 weld
-        distBetweenWelds = (parseFloat(distBetweenWelds) + lengthOfWelds).toFixed(4); // Add lengthOfWelds to spacing
-    } else if (numOfWelds > 3) {
-        numOfWelds -= 2; // Subtract 2 welds
-        distBetweenWelds = (parseFloat(distBetweenWelds) + lengthOfWelds).toFixed(4); // Add lengthOfWelds to spacing
-    }
-    // temperary fix not very well optimized
-    
 
     // Display results
     document.getElementById("results").innerHTML = `
